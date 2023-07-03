@@ -1,0 +1,76 @@
+# General parameters
+dataset: RecSys2023
+model_name: CatBoost # DecisionTree, KNN, SVM, DecisionTree, RandomForest, XGBoost, CatBoost, LightGBM,
+    # ModelTree, TabNet, VIME, TabTransformer, RLN, DNFNet, STG, NAM, DeepFM, SAINT
+objective: binary # Don't change
+
+# GPU parameters
+use_gpu: True
+gpu_ids: [0]
+data_parallel: True
+
+# Optuna parameters - https://optuna.org/
+n_trials: 1
+direction: minimize
+# optimize_hyperparameters: True
+
+# Cross validation parameters
+num_splits: 10
+shuffle: True
+seed: 221 # Don't change
+
+# Preprocessing parameters
+scale: True
+target_encode: False
+one_hot_encode: False  # False
+use_pca: False
+
+
+# Training parameters
+batch_size: 512
+val_batch_size: 1024
+early_stopping_rounds: 5
+epochs: 100
+logging_period: 5
+
+# About the data
+num_classes: 1 # for classification
+
+# Without PCA Feature
+num_features: 74
+cat_idx: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73]
+
+# # With PCA Feature
+# num_features: 92
+# cat_idx: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91]
+
+
+# num_features: 73
+# num_features: 64
+# num_features: 77  # 28
+# cat_idx: [29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76]
+# cat_idx: []
+# cat_idx: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,]
+# num_features: 72  
+# cat_idx: [38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,]
+# remove 12 ~ 27(inclusive) for fe0 ~ fe14
+
+# # for fe15
+# num_features: 72
+# cat_idx: [23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71]
+
+# # for fe16: n_components=24, include_origin=False
+# num_features: 58
+# cat_idx: [24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57]
+
+# # for fe16: n_components=24, include_origin=True
+# num_features: 96
+# cat_idx: [52,53,54,55,56,57,58,59,60,61,62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
+
+# # for fe17
+# num_features: 101
+# cat_idx: [28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+
+# # for fe18
+# num_features: 40
+# cat_idx: [20, 21, 22, 23, 24, 25, 26, 27,28,29,30,31,32,33,34,35,36,37,38,39,]
